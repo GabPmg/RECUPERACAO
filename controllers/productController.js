@@ -1,8 +1,7 @@
 const Product = require('../models/productModel');
 
 exports.createProduct = async (req, res) => {
-    const { name, description, quantity } = req.body;
-    const photo = req.file ? req.file.path : null;
+    const { name, description, quantity, photo } = req.body;
 
     try {
         const product = new Product({ name, description, quantity, photo });
@@ -37,8 +36,7 @@ exports.getProductById = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
     const { id } = req.params;
-    const { name, description, quantity } = req.body;
-    const photo = req.file ? req.file.path : null;
+    const { name, description, quantity, photo} = req.body;
 
     try {
         const product = await Product.findByIdAndUpdate(

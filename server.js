@@ -15,7 +15,5 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
 app.use('/products', productRoutes);
 app.listen(PORT, () => console.log(`Servidor conectado na porta ${PORT}`));
